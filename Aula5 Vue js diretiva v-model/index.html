@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 5</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ titulo }}</h1>
+
+    <label for="name">Nome</label>
+    <input type="text" v-model="nome" name="name">
+
+    <br><br>
+    <label for="telefone">Telefone</label>
+    <input type="text" v-model="telefone" name="telefone">
+
+    <br><br>
+    <label>Deseja receber nossas novidades?</label> <br>
+    <input type="radio" v-model="novidades" value="sim">Sim
+    <input type="radio" v-model="novidades" value="nao">Nao
+    
+    <br><br>
+    <label>Interesses:</label> <br>
+    <input type="checkbox" v-model="interesses" value="Futebol"> Futebol <br>
+    <input type="checkbox" v-model="interesses" value="Formula 1"> Formula 1 <br>
+    <input type="checkbox" v-model="interesses" value="Corrida"> Corrida <br>
+
+    <br><br>
+    <label>Como nos conheceu?</label> <br>
+    <select name="" id="" v-model="conheceu">
+      <option value="Google">Google</option>
+      <option value="TV">TV</option>
+      <option value="Revista">Revista</option>
+    </select>
+
+    <br><br>
+    <button>Enviar</button>
+
+    <br><br>
+    Nome: {{ nome }} <br>
+    Telefone: {{ telefone }} <br>
+    Novidades: {{ novidades }} <br>
+    Interesses: {{ interesses }} <br>
+    Como nos conheceu: {{ conheceu }} <br>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var app = new Vue ({
+      el: "#app",
+      data: {
+        titulo: "VueJS study",
+        nome: "",
+        telefone: "",
+        novidades: "",
+        interesses: [],
+        conheceu: "",
+      }
+    })
+  </script>
+</body>
+</html>
