@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aula 6</title>
+
+  <style>
+    .green {
+      color: green;
+      font-size: 36px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ titulo }}</h1>
+    <img v-bind:src="imagem" alt="">
+
+    <br><br>
+    <p :class="myClass">Hello world! can be v-bind or : to set the value from a variable</p>
+  </div>
+
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    var app = new Vue ({
+      el: "#app",
+      data: {
+        titulo: "VueJS study",
+        imagem: "data:image/jpeg;base64,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",
+        myClass: "green",
+      }
+    })
+  </script>
+</body>
+</html>
