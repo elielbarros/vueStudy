@@ -12,7 +12,8 @@
   <div id="app">
     <h1>{{ titulo }}</h1>
     
-    <button class="btn btn-primary">Enviar</button>
+    <button class="btn" v-bind:class="btnClassLimpar" v-bind:style="btnStyleLimpar">Limpar</button>
+    <button class="btn" :class="btnClassEnviar" v-bind:style="btnStyleEnviar">Enviar</button>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -21,6 +22,20 @@
       el: "#app",
       data: {
         titulo: "VueJS study",
+        btnClassLimpar: {
+          "btn-danger" : true,
+          "btn-sm" : true
+          },
+        btnClassEnviar: [
+          "btn-primary", { "btn-lg" : true }
+          ],
+        btnStyleLimpar: [
+          {"font-size" : "50px"},
+          {"text-transform" : "lowercase"},
+          ],
+        btnStyleEnviar: {
+          "font-size" : "10px"
+          },
       }
     })
   </script>
