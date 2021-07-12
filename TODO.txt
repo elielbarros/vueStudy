@@ -1,3 +1,4 @@
 Parei na aula 10. 
 16:59.
-Tem alguma coisa errada com o watch, mas ele nao ta chamando a função como devia.
+Tem alguma coisa errada com o watch, mas ele nao ta chamando a função como devia. Duvida na aula 10
+

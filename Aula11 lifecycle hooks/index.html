@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Aula 11</title>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+
+            beforeCreate() {
+                // This method wont give access to variables that are in data: {}
+                // Esse metodo não dá acesso as variáveis que estão em data: {}
+                console.log("🚀 ~ file: index.html ~ line 25 ~ beforeCreate ~ beforeCreate");
+                console.log("🚀 ~ file: index.html ~ line 54 ~ titulo", this.titulo); // Vai imprimir Undefined // Will print Undefined in console
+                console.log('el :>> ', this.$el);
+
+            },
+            created() {
+                // Esse metodo tem acesso as variaveis que estão em data:{}
+                // This method have access to the variables that are in data: {}
+                // Depois desse metodo, todos os outros terao acesso ao titulo
+                // Later this method all the others will have access to the title
+                console.log("🚀 ~ file: index.html ~ line 28 ~ created ~ created");
+                console.log("🚀 ~ file: index.html ~ line 54 ~ titulo", this.titulo);
+                console.log('el :>> ', this.$el);
+            },
+
+            beforeMount() {
+                // el ou elemento, só pode ser acessado por beforeMount e mounted
+                // el or element can be accessed just by beforeMount and mounted
+                console.log("🚀 ~ file: index.html ~ line 32 ~ beforeMount ~ beforeMount");
+                console.log('el :>> ', this.$el);
+
+            },
+            mounted() {
+                // el ou elemento, só pode ser acessado por beforeMount e mounted
+                // el or element can be accessed just by beforeMount and mounted
+                // por exemplo: jquery soh pode entrar em ação apos o vue js terminar de montar a pagina
+                // for example: jquery can just do something when the vue js assemble the page
+                console.log("🚀 ~ file: index.html ~ line 36 ~ mounted ~ mounted");
+                console.log('el :>> ', this.$el);
+            },
+
+            beforeUpdate() {
+                // Sempre que houver alguma alteração que a pagina for atualizar e renderizar beforeUpdate e updated serão chamados
+                // Always that happens some modification that the page gonna update and render... beforeUpdate and updated will be called
+                // Exemplo: Digite no console app.titulo = "VueJS Hello World"
+                // Example: Type in console app.titulo = "VueJS Hello World"
+                console.log("🚀 ~ file: index.html ~ line 41 ~ beforeUpdate ~ beforeUpdate");
+
+            },
+            updated() {
+                console.log("🚀 ~ file: index.html ~ line 45 ~ updated ~ updated");
+
+            },
+
+            data: {
+                titulo: "VueJS study",
+            },
+        });
+    </script>
+</body>
+
+</html>
