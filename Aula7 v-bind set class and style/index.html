@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <title>Aula 7</title>
 
   <style>
+    .class1 {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+    }
+
+    .class2 {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
   </style>
 </head>
+
 <body>
   <div id="app">
     <h1>{{ titulo }}</h1>
-    
+
     <button class="btn" v-bind:class="btnClassLimpar" v-bind:style="btnStyleLimpar">Limpar</button>
     <button class="btn" :class="btnClassEnviar" v-bind:style="btnStyleEnviar">Enviar</button>
+
+    <div :class="myClass">Teste</div>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
   <script>
-    var app = new Vue ({
+    var app = new Vue({
       el: "#app",
       data: {
         titulo: "VueJS study",
         btnClassLimpar: {
-          "btn-danger" : true,
-          "btn-sm" : true
-          },
+          "btn-danger": true,
+          "btn-sm": true
+        },
         btnClassEnviar: [
-          "btn-primary", { "btn-lg" : true }
-          ],
+          "btn-primary", { "btn-lg": true }
+        ],
         btnStyleLimpar: [
-          {"font-size" : "50px"},
-          {"text-transform" : "lowercase"},
-          ],
+          { "font-size": "50px" },
+          { "text-transform": "lowercase" },
+        ],
         btnStyleEnviar: {
-          "font-size" : "10px"
-          },
+          "font-size": "10px"
+        },
+        myClass: 'class1',
       }
     })
   </script>
 </body>
+
 </html>

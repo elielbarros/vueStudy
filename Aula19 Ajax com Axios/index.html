@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Aula</title>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+
+        <button @click.stop.prevent="getUsers()" class="btn btn-success">Get Users</button>
+
+        <br><br>
+
+        <div class="alert alert-danger" v-if="response.msg != ''">{{ response.status }}</div>
+        <div class="alert alert-danger" v-if="response.msg != ''">{{ response.msg }}</div>
+
+        <div v-if="loader.users"> Carregando Usuarios </div>
+
+        <br><br>
+
+        <ul>
+            <li v-for="user in users">{{ user.name }}</li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        var mixin = {
+            methods: {
+                getUsers() {
+                    this.loader.users = true;
+                    var url = 'https://jsonplaceholder.typicode.com/users';
+
+                    var vueInstance = this;
+
+                    axios.get(url)
+                        .then(function (response) {
+                            console.log("🚀 ~ file: index.html ~ line 45 ~ response", response);
+                            console.log(response.data);
+                            vueInstance.users = response.data;
+                            vueInstance.loader.users = false;
+                        });
+                    //     , function (error) {
+                    //         console.log(error);
+                    //         if (error.statusText == "") {
+                    //             this.response.msg = "Error to get users.";
+
+                    //         }
+                    //         else {
+                    //             this.response.msg = error.statusText;
+                    //         }
+                    //         this.response.status = error.status;
+                    //     })
+                    // .finally(function () {
+                    //     this.loader.users = false;
+                    // });
+                }
+            }
+        }
+
+        var app = new Vue({
+            data: {
+                titulo: "VueJS study",
+                users: [],
+                loader: {
+                    users: false,
+                },
+                response: {
+                    msg: "",
+                    status: "",
+                }
+            },
+            el: "#app",
+            mixins: [mixin],
+        });
+    </script>
+</body>
+
+</html>
