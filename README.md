@@ -13,3 +13,5 @@
 - About Transitions (Aula 21): https://vuejs.org/v2/guide/transitions.html
 
 - Staggering List Transitions (Busca dinamica): https://vuejs.org/v2/guide/transitions.html
+
+Testing again
