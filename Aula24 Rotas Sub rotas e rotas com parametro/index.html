@@ -122,7 +122,11 @@
         var router = new VueRouter({
             mode: 'history',
             routes: [
-                { path: '/transformers', name: 'transformers', component: transformers, children: [{ path: ':name', name: 'transformersContent', component: transformersContent }] },
+                {
+                    path: '/transformers', name: 'transformers', component: transformers, children: [
+                        { path: ':name', name: 'transformersContent', component: transformersContent }
+                    ]
+                },
                 { path: '/game-of-thrones', name: 'gameOfThrones', component: gameOfThrones },
             ]
         });
