@@ -20,6 +20,16 @@
             {
             opacity: 0;
         }
+
+        .dark {
+            color: #fff;
+            background-color: #000;
+        }
+
+        .light {
+            color: #fff;
+            background-color: #666;
+        }
     </style>
 </head>
 
@@ -53,6 +63,10 @@
     <template id="transformers">
         <div>
             <div class="row">
+                <div :class="[ 'col', sidebar ]">
+                    Sidebar
+                </div>
+
                 <div class="col">
                     <h3>Transformers</h3>
                     <ul>
@@ -100,6 +114,12 @@
     <script>
         var transformers = Vue.component('transformers', {
             template: "#transformers",
+            props: {
+                sidebar: String,
+            },
+            created() {
+                console.log(this.sidebar);
+            },
             data() {
                 return {
                     transformers: [
@@ -139,7 +159,7 @@
                 { path: '/', name: 'home' },
                 {
                     path: '/transformers', name: 'transformers', component: transformers,
-                    props: {},
+                    props: { sidebar: 'light' },
                     children: [
                         { path: ':name', name: 'transformersContent', component: transformersContent }
                     ]
