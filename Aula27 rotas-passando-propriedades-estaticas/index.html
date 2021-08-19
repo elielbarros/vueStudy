@@ -136,9 +136,11 @@
         var router = new VueRouter({
             mode: 'history',
             routes: [
-                { path: '/', name: 'home', redirect: { name: 'transformersContent', params: { name: 'megatron' } } },
+                { path: '/', name: 'home' },
                 {
-                    path: '/transformers', name: 'transformers', component: transformers, children: [
+                    path: '/transformers', name: 'transformers', component: transformers,
+                    props: {},
+                    children: [
                         { path: ':name', name: 'transformersContent', component: transformersContent }
                     ]
                 },
