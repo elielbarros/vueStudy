@@ -1,6 +1,6 @@
-# vue-cli-study
+# vue-do-jeito-ninja
 
-> A Vue.js project
+> Projeto Vue do Jeito Ninja
 
 ## Build Setup
 
